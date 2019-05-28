@@ -20,6 +20,7 @@ let server = http.createServer((req,res) => {
 });
 //画像が最適化される理由
 //動画が最適化されない理由
+//音楽がどうなるか
 
 server.listen(1234);
 console.log('create server');
