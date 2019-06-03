@@ -28,7 +28,7 @@ let server = http.createServer((req,res) => {
             console.log('age は' + params.age);
         });
     }
-
+//省略したとき
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(indexPage);
     res.end();

@@ -10,3 +10,5 @@ Hoge.prototype.sub = (val1, val2) => {
 
 let hoge = new Hoge();
 module.exports = hoge;
+
+//classの方が楽.
