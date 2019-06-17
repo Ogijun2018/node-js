@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Ogijun2018/nodeJS#readme",
   "dependencies": {
-    "ejs": "^2.6.1"
+    "ejs": "^2.6.1",
+    "express": "^4.17.1"
   }
 }
