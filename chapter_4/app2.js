@@ -1,26 +1,24 @@
 let express = require('express');
 let app = express();
 let ejs = require('ejs');
-let bodyParser = require('body-parser'); //①
+let session = require('express-session'); //①
 
 app.engine('ejs', ejs.renderFile);
-app.use(bodyParser.urlencoded({ //②
-    extended: true
+app.use(session({ //②
+    secret: 'hoge',
+    resave: true,
+    saveUninitialized: true,
 }));
 
 app.get('/', (req,res) => {
-    console.log('---GET Request---');
-    console.log('name は'+req.query.name); //③
-    console.log('age は'+req.query.age);
-    res.render('postDataEjs.ejs',{});
-});
+    let cnt = req.session.countEjs == undefined ? 0 : req.session.countEjs; //③
+    cnt ++;
+    req.session.countEjs = cnt; //④
 
-// app.post('/', (req,res) => { //④
-//     console.log('---POST Request---');
-//     console.log('name は'+req.body.name); //⑤
-//     console.log('age は'+req.body.age);
-//     res.render('postDataEjs.ejs',{});
-// });
+    res.render('tempEjs2.ejs', {
+        countEjs: cnt
+    })
+});
 
 let server = app.listen(1234, () => {
     console.log('create server.');
